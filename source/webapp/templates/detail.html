@@ -11,6 +11,7 @@
             <p class="card-text">Aноним</p>
         {% endif %}
         <p class="card-text">{{ file.created_date }}</p>
+        <p class="card-text">{{ file.type }}</p>
         <p class="card-text" ><a href="{{ file.file.url }}">Download</a></p>
         {% if perms.webapp.delete_file or file.author == request.user %}
             <p><a href="{% url 'webapp:file_delete' file.pk %}" class="btn btn-primary">Delete</a></p>
@@ -19,4 +20,15 @@
             <p><a href="{% url 'webapp:file_update' file.pk %}" class="btn btn-primary">Edit</a></p>
         {% endif %}
     </div>
+    <div class="text-center">
+    <h1>Users in private group</h1>
+        {% if file.type == 'private' %}
+            {% for user in file.private_group.all %}
+                <p><a href="{% url 'accounts:detail' user.pk %}">{{ user }}</a></p>
+            {% empty %}
+                <p>No users yet</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+
 {% endblock %}

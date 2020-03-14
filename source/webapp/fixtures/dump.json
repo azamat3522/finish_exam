@@ -1,0 +1,185 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$zO06W7sz2vjy$n0zPvdtWIjkAFq7HacFEV4J2sajb6tN8MS/X1BaoNoU=",
+    "last_login": "2020-03-14T12:04:36.982Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "azamat",
+    "last_name": "Aydarbekov",
+    "email": "aza@mail.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-03-13T07:12:27Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$cyWphAkgqI1S$nE7BrlmpRYVpY9GzfpfeKJs2ts8UZu9GAmjPZT9Yv3E=",
+    "last_login": "2020-03-13T08:17:22.298Z",
+    "is_superuser": false,
+    "username": "azamat",
+    "first_name": "azamat",
+    "last_name": "satynbekov",
+    "email": "aza@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-03-13T08:17:09.857Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$8Yi3ybG0eUP5$qQbJWjYEiQPDg3RhggaiWDv8aK1t1R3bctAHo/SVg9w=",
+    "last_login": "2020-03-14T11:18:16.983Z",
+    "is_superuser": false,
+    "username": "azamat2",
+    "first_name": "aza",
+    "last_name": "aza",
+    "email": "aza1@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-03-14T07:53:35Z",
+    "groups": [],
+    "user_permissions": [
+      26
+    ]
+  }
+},
+{
+  "model": "webapp.file",
+  "pk": 13,
+  "fields": {
+    "file": "files/\u041f\u043e\u0434\u0441\u0447\u0435\u0442_\u043f\u043e\u043b\u0435\u0438_1.odt",
+    "name": "Test1",
+    "created_date": "2020-03-14T06:58:24.735Z",
+    "author": 1,
+    "type": "common",
+    "private_group": []
+  }
+},
+{
+  "model": "webapp.file",
+  "pk": 14,
+  "fields": {
+    "file": "files/\u041f\u043e\u0434\u0441\u0447\u0435\u0442_\u043f\u043e\u043b\u0435\u0438_hUsLiVG.odt",
+    "name": "Test2",
+    "created_date": "2020-03-14T06:59:03.438Z",
+    "author": 1,
+    "type": "common",
+    "private_group": []
+  }
+},
+{
+  "model": "webapp.file",
+  "pk": 15,
+  "fields": {
+    "file": "files/\u041f\u043e\u0434\u0441\u0447\u0435\u0442_\u043f\u043e\u043b\u0435\u0438_1_WeLHg8C.odt",
+    "name": "Test3",
+    "created_date": "2020-03-14T06:59:19.299Z",
+    "author": 1,
+    "type": "common",
+    "private_group": []
+  }
+},
+{
+  "model": "webapp.file",
+  "pk": 16,
+  "fields": {
+    "file": "files/\u041f\u043e\u0434\u0441\u0447\u0435\u0442_\u043f\u043e\u043b\u0435\u0438_1_gXnE2Z7.odt",
+    "name": "Test4",
+    "created_date": "2020-03-14T06:59:35.288Z",
+    "author": 1,
+    "type": "common",
+    "private_group": []
+  }
+},
+{
+  "model": "webapp.file",
+  "pk": 17,
+  "fields": {
+    "file": "files/\u041f\u043e\u0434\u0441\u0447\u0435\u0442_\u043f\u043e\u043b\u0435\u0438_1_YcUMAbG.odt",
+    "name": "Test51",
+    "created_date": "2020-03-14T06:59:52.012Z",
+    "author": null,
+    "type": "common",
+    "private_group": []
+  }
+},
+{
+  "model": "webapp.file",
+  "pk": 18,
+  "fields": {
+    "file": "files/\u041f\u043e\u0438\u0441\u043a\u043e\u0432\u0438\u043a_\u0410\u043a\u0430\u0434\u0435\u043c\u0438\u0447\u0435\u0441\u043a\u0438\u0438_\u044d\u043a\u0441\u043f\u0435\u0440\u0442_1.docx",
+    "name": "Test6",
+    "created_date": "2020-03-14T07:07:48.979Z",
+    "author": 1,
+    "type": "hidden",
+    "private_group": []
+  }
+},
+{
+  "model": "webapp.file",
+  "pk": 19,
+  "fields": {
+    "file": "files/\u0417\u0430\u043d\u044f\u0442\u0438\u0435_51._React_\u043a\u043e\u043c\u043f\u043e\u043d\u0435\u043d\u0442\u044b_JSX_nMOFM0o_wM3xZWF.docx",
+    "name": "Test7",
+    "created_date": "2020-03-14T08:12:48.932Z",
+    "author": 3,
+    "type": "hidden",
+    "private_group": []
+  }
+},
+{
+  "model": "webapp.file",
+  "pk": 20,
+  "fields": {
+    "file": "files/\u0417\u0430\u043d\u044f\u0442\u0438\u0435_51._React_\u043a\u043e\u043c\u043f\u043e\u043d\u0435\u043d\u0442\u044b_JSX_nMOFM0o_yCWWvl8.docx",
+    "name": "Test8",
+    "created_date": "2020-03-14T09:57:44.975Z",
+    "author": 3,
+    "type": "private",
+    "private_group": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.file",
+  "pk": 21,
+  "fields": {
+    "file": "files/\u0417\u0430\u043d\u044f\u0442\u0438\u0435_51._React_\u043a\u043e\u043c\u043f\u043e\u043d\u0435\u043d\u0442\u044b_JSX_nMOFM0o_wCl0v3j.docx",
+    "name": "Test10",
+    "created_date": "2020-03-14T10:00:19.283Z",
+    "author": 1,
+    "type": "private",
+    "private_group": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.file",
+  "pk": 22,
+  "fields": {
+    "file": "files/\u0417\u0430\u043d\u044f\u0442\u0438\u0435_51._React_\u043a\u043e\u043c\u043f\u043e\u043d\u0435\u043d\u0442\u044b_JSX_nMOFM0o_wCl0v3j_nzklLBf.docx",
+    "name": "dfdf",
+    "created_date": "2020-03-14T11:20:35.094Z",
+    "author": 3,
+    "type": "common",
+    "private_group": [
+      3
+    ]
+  }
+}
+]

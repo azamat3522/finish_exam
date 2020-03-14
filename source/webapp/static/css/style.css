@@ -8,8 +8,28 @@
     /*color: white;*/
 /*}*/
 
+/*.nav-item{*/
+    /*font-family: 'Roboto', sans-serif;*/
+/*}*/
+.navbar-brand span{
+    color: #d94f00;
+    font-size: 14px;
+}
+
+.menu-button{
+    background-color: #a3a948;
+    color: white;
+}
+
+.search-button{
+    background-color: #d94f00;
+    border-color: #d94f00;
+    color: white;
+}
+
 .nav-item{
     font-family: 'Roboto', sans-serif;
+    color: #0062cc;
 }
 
 .pagination_file {
@@ -17,3 +37,12 @@
     margin: 30px 30px;
 }
 
+.search_input{
+    border-radius: 30%;
+
+}
+
+.form-right{
+    margin-left: 300px;
+    margin-top: 10px;
+}
