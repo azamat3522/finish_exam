@@ -23,9 +23,9 @@ class UserDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        print(context['user_obj'])
         files = context['user_obj'].users_file.order_by('-created_date')
         self.paginate_files_to_context(files, context)
-        # context['files'] = files
         return context
 
     def paginate_files_to_context(self, files, context):
@@ -36,3 +36,10 @@ class UserDetailView(DetailView):
         context['page_obj'] = page
         context['files'] = page.object_list
         context['is_paginated'] = page.has_other_pages()
+
+    # def get_queryset(self):
+    #     queryset = super().get_queryset()
+    #     print(queryset)
+    #     queryset = queryset.filter(type='common')
+    #     return queryset
+

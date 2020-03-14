@@ -25,15 +25,18 @@
                 {% include 'partial/pagination.html' %}
             {% endif %}
             {% for file in files %}
+                {% if file.type == 'common' or file.author == request.user %}
                  <div class="col col-3">
                     <div class="card">
                         <div class="card-body">
                             <p class="card-title"><a href="{% url "webapp:file_detail" file.pk %}">{{ file.name }}</a></p>
                             <p class="card-text">{{ file.created_date }}</p>
+                            <p class="card-text">{{ file.type }}</p>
                             <p class="card-text" ><a href="{{ file.file.url }}">Download</a></p>
                         </div>
                     </div>
                  </div>
+                {% endif %}
             {% endfor %}
             </div>
             </div>

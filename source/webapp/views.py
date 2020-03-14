@@ -7,7 +7,7 @@ from django.utils.http import urlencode
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, DeleteView, UpdateView
 
 
-from webapp.forms import FileForm, SimpleSearchForm
+from webapp.forms import FileForm, SimpleSearchForm, FileFormSecond
 from webapp.models import File
 
 
@@ -35,8 +35,10 @@ class IndexView(ListView):
         queryset = super().get_queryset()
         if self.search_query:
             queryset = queryset.filter(
-                Q(name__icontains=self.search_query)
+                Q(name__icontains=self.search_query, type='common')
             )
+        else:
+            return queryset.filter(type='common')
         return queryset
 
     def get_search_form(self):
@@ -52,11 +54,28 @@ class FileView(DetailView):
     model = File
     template_name = 'detail.html'
 
+    def dispatch(self, request, *args, **kwargs):
+        if  self.get_object().author == self.request.user or self.get_object().type == 'private' and self.request.user in self.get_object().private_group.all() or self.get_object().type == 'common' or self.request.user.has_perm('file_view'):
+            print('ok')
+            print(self.get_object().author)
+            return super().dispatch(request, *args, **kwargs)
+        else:
+            raise PermissionDenied('403 Forbidden')
+
+    def get_success_url(self):
+        return reverse('webapp:file_detail', kwargs={'pk': self.object.pk})
+
 
 class FileCreateView(CreateView):
     model = File
-    form_class = FileForm
     template_name = 'create.html'
+    form_class = FileForm
+
+    def get_form_class(self):
+        if self.request.user.is_authenticated:
+            return FileForm
+        else:
+            return FileFormSecond
 
     def form_valid(self, form):
         if str(self.request.user) != 'AnonymousUser':
