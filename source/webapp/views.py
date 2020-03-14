@@ -1,8 +1,11 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.db.models import Q
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.utils.http import urlencode
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, DeleteView, UpdateView
+
 
 from webapp.forms import FileForm, SimpleSearchForm
 from webapp.models import File
@@ -69,6 +72,17 @@ class FileDeleteView(DeleteView):
     model = File
     context_object_name = 'file'
     success_url = reverse_lazy('webapp:index')
+    # permission_required = 'webapp.delete_file'
+    # permission_denied_message = "Доступ запрещён"
+
+    def dispatch(self, request, *args, **kwargs):
+        print(request.user.has_perm('webapp.delete_file'))
+        if request.user.has_perm('webapp.delete_file') or self.get_object().author == self.request.user:
+            print('ok')
+            print(self.get_object().author)
+            return super().dispatch(request, *args, **kwargs)
+        else:
+            raise PermissionDenied('403 Forbidden')
 
 
 class FileUpdateView(UpdateView):
@@ -76,7 +90,16 @@ class FileUpdateView(UpdateView):
     template_name = 'update.html'
     model = File
     context_object_name = 'file'
+    # permission_required = 'webapp.change_file'
+    # permission_denied_message = 'Доступ запрещен'
 
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.has_perm('webapp.change_file') or self.get_object().author == self.request.user:
+            print('ok')
+            print(self.get_object().author)
+            return super().dispatch(request, *args, **kwargs)
+        else:
+            raise PermissionDenied('403 Forbidden')
 
     def get_success_url(self):
         return reverse('webapp:file_detail', kwargs={'pk': self.object.pk})

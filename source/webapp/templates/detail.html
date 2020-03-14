@@ -12,7 +12,11 @@
         {% endif %}
         <p class="card-text">{{ file.created_date }}</p>
         <p class="card-text" ><a href="{{ file.file.url }}">Download</a></p>
-        <p><a href="{% url 'webapp:file_delete' file.pk %}" class="btn btn-primary">Delete</a></p>
-        <p><a href="{% url 'webapp:file_update' file.pk %}" class="btn btn-primary">Edit</a></p>
+        {% if perms.webapp.delete_file or file.author == request.user %}
+            <p><a href="{% url 'webapp:file_delete' file.pk %}" class="btn btn-primary">Delete</a></p>
+        {% endif %}
+        {% if perms.webapp.change_file or file.author == request.user%}
+            <p><a href="{% url 'webapp:file_update' file.pk %}" class="btn btn-primary">Edit</a></p>
+        {% endif %}
     </div>
 {% endblock %}
