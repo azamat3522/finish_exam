@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Files{% endblock %}
+{% block menu %}
+    <li class="nav-item"><a href="{% url 'webapp:file_create' %}" class="nav-link">Add file</a></li>
+    <div class="float-right">{% include 'partial/simple_search.html' %}</div>
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Files</h1>
+    <div class="row">
+        {% for file in files %}
+            <div class="col col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title"><a href="{% url "webapp:file_detail" file.pk %}">{{ file.name }}</a></p>
+                        {% if file.author %}
+                            <p class="card-text"><a href="{% url 'accounts:detail' file.author.pk  %}">{{ file.author }}</a></p>
+                        {% else %}
+                            <p class="card-text">Aноним</p>
+                        {% endif %}
+                        <p class="card-text">{{ file.created_date }}</p>
+                        <p class="card-text" ><a href="{{ file.file.url }}">Download</a></p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+{% endblock %}

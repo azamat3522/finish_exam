@@ -16,3 +16,8 @@ class SignUpForm(UserCreationForm):
             raise ValidationError('Email has already registered', code='email_registered')
         except User.DoesNotExist:
             return email
+
+
+
+
+

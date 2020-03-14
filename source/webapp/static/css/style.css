@@ -1,13 +1,18 @@
-.navbar-brand span{
-    color: #d94f00;
-    font-size: 14px;
-}
+/*.navbar-brand span{*/
+    /*color: #d94f00;*/
+    /*font-size: 14px;*/
+/*}*/
 
-.menu-button{
-    background-color: #a3a948;
-    color: white;
-}
+/*.menu-button{*/
+    /*background-color: #a3a948;*/
+    /*color: white;*/
+/*}*/
 
 .nav-item{
     font-family: 'Roboto', sans-serif;
+}
+
+.pagination_file {
+    text-align: center;
+    margin: 30px 30px;
 }
